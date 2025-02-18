@@ -67,16 +67,99 @@
 //     i++;
 // }
 
-const secretNumber= Math.round(Math.random() * 10)
-while (true) {
-    const guessedString =  prompt("Indovina il numero a cui sto pensand (da 0 a 10)");
-    guessedNumber= parseInt(guessedString);
-    if (guessedNumber===secretNumber) {
-        alert("Indovinato");
+// const secretNumber= Math.round(Math.random() * 10)
+// while (true) {
+//     const guessedString =  prompt("Indovina il numero a cui sto pensand (da 0 a 10)");
+//     guessedNumber= parseInt(guessedString);
+//     if (guessedNumber===secretNumber) {
+//         alert("Indovinato");
+//         break;
+//     }
+//     else{
+//         alert("prova di nuovo");
+//     }
+// }
+
+let startString = "";
+while (startString.length <= 9) {
+    startString += "*";
+}
+
+console.log(startString)
+
+//do while
+
+const pippo = 10;
+const pluto = 20;
+while (pippo > pluto) {
+    console.log("sono entrato");
+}
+
+do {
+    console.log("sono entrato nel dowhile")
+} while (pippo > pluto);
+
+//ciclo for
+
+for (let i = 0; i < 10; i++) {
+    console.log("sono nel ciclo for e faccio il giro n° " + i)
+}
+
+let startingString = ""
+for (; ;) { /// ciclo infinito
+    startingString += "s";
+    if (startingString.length === 10) {
         break;
     }
-    else{
-        alert("prova di nuovo")
+}
+
+console.log(startingString);
+
+// for (let y = 0; y < 4; y++) {
+//     for (let x = 0; x <4; x++) {    //si deve prima esaurire il ciclo interno per poi poter far ripartire il ciclo esterno
+
+//         console.log(`x: ${x}, y: ${y}`);
+//     }
+
+// }
+
+for (let y = 0; y < 4; y++) {
+    let row = ``;
+    for (let x = 0; x < 4; x++) {    //si deve prima esaurire il ciclo interno per poi poter far ripartire il ciclo esterno
+        row += `x: ${x}, y: ${y} `;
     }
+    console.log(row);
+}
+
+//switch x scelte multiple molto lunghe, in sostituzione di if con tanti if else
+
+
+const ageString = prompt("in che anno sei nato");
+
+
+switch (ageString) {
+    case "1978": //funziona come un if, o if else
+
+        alert("sei nato nel mio stesso anno")
+
+        break;
+
+    case "1990":
+
+        alert("sei nato nell'anno dei mondiali in italia")
+
+        break;
+
+    case "2000":
+
+        alert("hai 25 anni")
+
+        break;
+
+    default: //funziona come l'else
+
+        alert("che anno demmerda")
+
+        break;
 }
 
