@@ -21,6 +21,12 @@
 //     console.log(i);
 // }
 
+//versione repeat
+// for (let i = 1; i <= 7; i++) {
+//     console.log("#".repeat(i));
+    
+// }
+
 //fatto con jan, con prompt
 
 // let piramide = "";
@@ -107,7 +113,7 @@
 //SCACCHIERA con max/2 senza Boolean con while(true) e prompt
 
 // while (true) {
-//     let max = parseInt(prompt("inserisci la larghezza della scacchiera!"));
+//     let max = parseInt(prompt("inserisci la dimensione della scacchiera!"));
 //     let scacchiera = "";
 //     if (isNaN(max)) {
 //         alert("sei babbo");
@@ -127,6 +133,19 @@
 //         break;
 //     }
 // }
+
+//SCACCHIERA versione semplice con un solo for, non scalabile
+// let max = 8;
+// let scacchiera = "";
+// for (let y = 0; y < max; y++) {
+// if (y % 2 === 0) {
+//     scacchiera += " # # # #\n";
+// }
+// else {
+//     scacchiera += "# # # # \n";
+// }
+// }
+// console.log(scacchiera);
 
 //SCACCHIERA senza max/2 con Boolean
 
@@ -160,6 +179,24 @@
 // }
 // console.log(scacchiera);
 
+//SCACCHIERA intelligente
+
+// let size = 5;
+// let stringResult = "";
+// for (let row = 0; row < size; row++) {
+//     let newRow = "";
+//     for (let column = 0; column < size; column++) {
+
+//         //la somma di righe e colonne da sempre lo stesso risultato in base a se è pari o dispari
+        
+//         if ((row + column) % 2 === 0) {
+//             newRow += " ";
+//         } else {
+//             newRow += "#";
+//         }
+//     }    
+//     stringResult += newRow + "\n";
+// }    console.log(stringResult);
 
 
 
@@ -203,18 +240,32 @@
 //     console.log(row);
 // }
 
-for (let i = 0; i < 5; i++) { //i rappresenta il numero di righe
-    let Row = "";
-    for (let x = 0; x < 4-i; x++) { //stampa gli spazi prima centro
-        Row += " ";                 //il numero massimo della x rappresenta il numero di spazi prima di #
+// for (let i = 0; i < 5; i++) { //i rappresenta il numero di righe
+//     let Row = "";
+//     for (let x = 0; x < 4-i; x++) { //stampa gli spazi prima centro
+//         Row += " ";                 //il numero massimo della x rappresenta il numero di spazi prima di #
+//     }
+//     for (let y = 0; y < i+1; y++) { //stampa # fino al centro (compreso)
+//         Row += "#";                 //ne stampa sempre almeno 1
+//     }
+//     for (let t = 0; t < i; t++) { //stampa # dopo il centro, gli spazi sono inutili
+//         Row += "#";
+//     }
+//     console.log(Row)
+// }+
+
+//soluzione più efficiente CoPilot
+
+for (let i = 0; i < 5; i++) { // i represents the number of rows
+    let row = "";
+    for (let j = 0; j < 9; j++) { // j represents the total width of the row
+        if (j < 4 - i || j > 4 + i) {
+            row += " "; // add spaces before and after the center
+        } else {
+            row += "#"; // add hashes in the center
+        }
     }
-    for (let y = 0; y < i+1; y++) { //stampa # fino al centro (compreso)
-        Row += "#";                 //ne stampa sempre almeno 1
-    }
-    for (let t = 0; t < i; t++) { //stampa # dopo il centro, gli spazi sono inutili
-        Row += "#";
-    }
-    console.log(Row)
+    console.log(row);
 }
 
 // 4 - usando un ciclo logga i numeri da 100 a -100
@@ -314,9 +365,7 @@ for (let i = 0; i < 5; i++) { //i rappresenta il numero di righe
 //     console.log(`Hai vissuto per circa ${hoursLived} ore`);
 // }
 
-// if (isNaN(gender)) {
-//     alert("Non è possibile fare calcoli senza la tua età.")
-// } else if (gender === "F" || gender === "f") {
+// if (gender === "F" || gender === "f") {
 //     let lifeExpectancy = 86;
 //     let hoursToLive = 8766 * (lifeExpectancy - age);
 //     if(hoursToLive<=0){
