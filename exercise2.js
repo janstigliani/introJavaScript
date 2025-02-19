@@ -194,8 +194,7 @@ const simpleMultiplication = number => number % 2 === 0 ? number * 8 : number * 
 
 const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest'
 
-//ESERCIZIO 7 CODE-WARS ()
-
+//ESERCIZIO 7 CODE-WARS (Square Every Digit)
 
 function squareDigits(numbers){
     numbers = numbers.toString();
