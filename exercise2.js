@@ -137,7 +137,7 @@ console.log(countChar1("mamma", "m"));
 console.log(countChar1("kappa", 1));
 
 
-//ESERCIZIO CODE-WARS
+//ESERCIZIO 1 CODE-WARS (REPLACE VOWELS)
 
 
 function replace(s) {
@@ -147,14 +147,67 @@ function replace(s) {
         let character = s.charAt(i);
         if (character === "a" || character === "A" || character === "e" || character === "E" || character === "i" || character === "I" || character === "o" || character === "O" || character === "u" || character === "U") {
             character = "!";
-            // modS += character;
         }
-        // else {
-        //     modS += character;
-        // }
         modS += character;
     }
     return modS;
 }
 
 replace("Hi, I'm Jan!");
+
+//ESERCIZIO 2 CODE-WARS (WIDE-MOUTH FROG)
+
+function mouthSize(animal) {
+    animal = animal.toLowerCase()
+    if(animal !== "alligator"){
+      return "wide";
+    }
+    return "small"
+  }
+
+// Versione migliore
+
+// function mouthSize(animal) {
+//     return animal.toLowerCase() == 'alligator' ? 'small' : 'wide';
+//   }
+
+// Versione code golf (arrowed)
+
+// const mouthSize = (animal) => animal.toLowerCase() == "alligator" ? "small" : "wide";
+
+//ESERCIZIO 3 CODE-WARS (SQUARE-SUM)
+
+numbers = "21, 12, 2000"
+number1 = parseInt(numbers)
+
+console.log(numbers)
+
+//ESERCIZIO 4 CODE-WARS (bool to yes/no)
+
+const boolToWord = bool => bool === true ? 'Yes' : 'No'
+
+//ESERCIZIO 5 CODE-WARS (even*8/odd*9)
+
+const simpleMultiplication = number => number % 2 === 0 ? number * 8 : number * 9;
+
+//ESERCIZIO 6 CODE-WARS (Personalized Message)
+
+const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest'
+
+//ESERCIZIO 7 CODE-WARS ()
+
+
+function squareDigits(numbers){
+    numbers = numbers.toString();
+    let sqrtNum= 0;
+    for (i=0; i<numbers.length; i++){
+      numbers= numbers[i];
+      sqrtNum = numbers*numbers
+    }
+    return sqrtNum;
+  }
+
+  
+  console.log(squareDigits(22354));
+  
+
