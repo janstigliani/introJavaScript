@@ -64,6 +64,8 @@
 
 // // console.log("index", index);
 
+
+
 // //METODI DI LAVORO CON ARRAY DI DATI
 
 // //MAPPING (TRASFORMAZIONE DEI DATI)
@@ -75,7 +77,7 @@
 // //nuovo array che abbia tutti i dati moltiplicato per due
 
 // function doubleArrayElements(arrayOfNumbers) {
-    
+
 //     const arrayMapped = [];
 
 //     for (let i = 0; i < arrayOfNumbers.length; i++) {
@@ -92,7 +94,7 @@
 
 
 // function addOneToArrayElements(arrayOfNumbers) {
-    
+
 //     let arrayMapped2 = [];
 
 //     for (let jan = 0; jan < arrayOfNumbers.length; jan++) {
@@ -112,7 +114,7 @@
 // //restituisce un'array dello stesso tipo di quello di ingresso, con un numero minore o uguale di elementi
 
 // function removeLargerThan30(arrayOfNumbers) {
-    
+
 //     const newArray = [];
 
 //     for (let I = 0; I < arrayOfNumbers.length; I++) {
@@ -121,7 +123,7 @@
 //         if(element <= 30){ //condizione per determinare quale elemento da tenere va inserito nel nuovo array
 //             newArray.push(element);
 //         }
-        
+
 //     }
 //     return newArray
 // }
@@ -134,7 +136,7 @@
 
 
 // function keepEven(arrayOfNumbers) {
-    
+
 //     const newArray = []
 
 //     for (let I = 0; I < arrayOfNumbers.length; I++) {
@@ -214,7 +216,7 @@
 // //CONVENIENZA DI CREARE UN NUOVO ELEMENTO PIUTTOSTO CHE MODIFICARE QUELLO DI PARTENZA O UNIRE PIù FUNZIONI PER FARLO
 
 // function sumAllEvenElements(arrayOfNumbers) {
-    
+
 //     return sumAllElements(keepEven(arrayOfNumbers));
 
 // } // è meno performante perché richiama più volte
@@ -228,7 +230,7 @@
 // // Ancora esempio di REDUCING
 
 // // function sumEvenAndSumOdd(arrayOfNumbers) {
-    
+
 // //     let accumulatorEven = 0;
 
 // //     let accumulatorOdd = 0;
@@ -240,7 +242,7 @@
 // //         }else{
 // //             accumulatorOdd += element;
 // //         }
-        
+
 // //     }
 // //     return [accumulatorEven, accumulatorOdd]; // ritornando un array possiamo ritornare più valori rispetto al singolo che return si aspetterebbe
 // // }
@@ -252,7 +254,7 @@
 // //versione migliorata (deve avere 1 solo accumulator)
 
 // function sumEvenAndSumOdd(arrayOfNumbers) {
-    
+
 //     let accumulatorSum = [0, 0];
 
 //     for (let I = 0; I < arrayOfNumbers.length; I++) {
@@ -262,7 +264,7 @@
 //         }else{
 //             accumulatorSum[1] += element;
 //         }
-        
+
 //     }
 //     return accumulatorSum; 
 // }
@@ -317,9 +319,9 @@
 
 // navigazione tra Array multi dimensionali
 
-const array3 = [[1,2,3], [3,2,1,0], [0,0,0,0]];
+const array3 = [[1, 2, 3], [3, 2, 1, 0], [0, 0, 0, 0]];
 
-function navigatiorArray(array) {
+function navigationArray(array) {
     for (let I = 0; I < array.length; I++) {
         const arrayElement = array[I];
         for (let j = 0; j < arrayElement.length; j++) {
@@ -329,7 +331,7 @@ function navigatiorArray(array) {
     }
 }
 
-navigatiorArray(array3);
+navigationArray(array3);
 
 
 
