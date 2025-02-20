@@ -256,14 +256,24 @@
 
 //soluzione più efficiente CoPilot
 
-for (let i = 0; i < 5; i++) { // i represents the number of rows
+// for (let i = 0; i < 5; i++) { // i represents the number of rows
+//     let row = "";
+//     for (let j = 0; j < 9; j++) { // j represents the total width of the row
+//         if (j < 4 - i || j > 4 + i) {
+//             row += " "; // add spaces before and after the center
+//         } else {
+//             row += "#"; // add hashes in the center
+//         }
+//     }
+//     console.log(row);
+// }
+
+//soluzione code-golf
+
+for (let i = 0; i < 5; i++) { 
     let row = "";
-    for (let j = 0; j < 9; j++) { // j represents the total width of the row
-        if (j < 4 - i || j > 4 + i) {
-            row += " "; // add spaces before and after the center
-        } else {
-            row += "#"; // add hashes in the center
-        }
+    for (let j = 0; j < 9; j++) { 
+        row += j < 4 - i || j > 4 + i ? " " :  "#";
     }
     console.log(row);
 }

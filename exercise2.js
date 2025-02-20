@@ -3,12 +3,14 @@
 //versione normale
 
 function min(number1=0, number2=number1) {
-    if(number1<number2){
-        return number1;
-    }
-    else{
-        return number2;
-    }
+    // if(number1<number2){
+    //     return number1;
+    // }
+    // else{
+    //     return number2;
+    // }
+    return number1<number2 ? number1 : number2;
+
 }
 
 console.log(min(0, 10));
@@ -184,7 +186,7 @@ console.log(numbers)
 
 //ESERCIZIO 4 CODE-WARS (bool to yes/no)
 
-const boolToWord = bool => bool === true ? 'Yes' : 'No'
+const boolToWord = bool => bool === true ? 'Yes' : 'No';
 
 //ESERCIZIO 5 CODE-WARS (even*8/odd*9)
 
@@ -192,21 +194,21 @@ const simpleMultiplication = number => number % 2 === 0 ? number * 8 : number * 
 
 //ESERCIZIO 6 CODE-WARS (Personalized Message)
 
-const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest'
+const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest';
 
 //ESERCIZIO 7 CODE-WARS (Square Every Digit)
 
-function squareDigits(numbers){
-    numbers = numbers.toString();
-    let sqrtNum= 0;
-    for (i=0; i<numbers.length; i++){
-      numbers= numbers[i];
-      sqrtNum = numbers*numbers
-    }
-    return sqrtNum;
-  }
+// function squareDigits(numbers){
+//     numbers = numbers.toString();
+//     let sqrtNum= 0;
+//     for (i=0; i<numbers.length; i++){
+//       numbers= numbers[i];
+//       sqrtNum = numbers*numbers
+//     }
+//     return sqrtNum;
+//   }
 
   
-  console.log(squareDigits(22354));
+//   console.log(squareDigits(22354));
   
 

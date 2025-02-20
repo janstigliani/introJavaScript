@@ -114,7 +114,7 @@ function createMultiplicator(number) {
     return multiplicatorFunction;
 }
 
-const multiplicatorX2 = createMultiplicator(2);
+const multiplicatorX2 = createMultiplicator(2);  // quando assegni una funzione ad una variabile, gli assegni di fatto il contenuto di quella funzione, e nel caso di una funzione dentro una fuzione, significa assegnare quella funzione e quindi rende possibile passargli il parametro della funzione interna.
 const multiplicatorX3 = createMultiplicator(3);
 
 console.log(multiplicatorX2(10));
