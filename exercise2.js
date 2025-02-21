@@ -198,17 +198,40 @@ const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest';
 
 //ESERCIZIO 7 CODE-WARS (Square Every Digit)
 
-// function squareDigits(numbers){
-//     numbers = numbers.toString();
-//     let sqrtNum= 0;
-//     for (i=0; i<numbers.length; i++){
-//       numbers= numbers[i];
-//       sqrtNum = numbers*numbers
-//     }
-//     return sqrtNum;
-//   }
+function squareDigits(numbers){
+    let numberToString = numbers.toString();
+    let sqrtNumberString = ""
+    for (i=0; i<numberToString.length; i++){
+      number = parseInt(numberToString[i]);
+      let sqrtNum = number*number;
+      sqrtNumberString += sqrtNum.toString(); 
+    }
+    return parseInt(sqrtNumberString);
+  }
 
   
-//   console.log(squareDigits(22354));
+  console.log(squareDigits(22354));
+
+
+//ESERCIZIO 8 CODE-WARS (ARRAY AREA,VOLUME)
+
+function getSize(width, height, depth){
+  
+    let newArray=[]
+    
+    const area = ((2*width*height)+(2*depth*height)+(2*width*depth));
+    const volume = height*width*depth;
+    
+    newArray.push(area, volume);
+    
+    return newArray;
+  }
+  
+//ESERCIZIO 8 CODE-WARS (Name Array Capping)
+
+function capMe(names) {
+    
+}
+
   
 

@@ -119,7 +119,7 @@ function newStringFirstLetters(arrayOfStrings) {
 
     for (let I = 0; I < arrayOfStrings.length; I++) {
         let element = arrayOfStrings[I];
-        counter += element.slice(0,1);
+        counter += element.slice(0,1); //bastava usare [0], ma slice è più figo
     }
     return counter;
 }
@@ -130,7 +130,6 @@ console.log('prendo la prima lettera da ogni parola', arrayResult8);
 //9) contare tutti i caratteri di tutte le stringhe
 
 function charSumAllStrings(arrayOfStrings) {
-    let newArray = [];
     let counter = 0;
 
     for (let I = 0; I < arrayOfStrings.length; I++) {
@@ -204,12 +203,10 @@ function arraysSum(arrayOfArray) {
     let counter = 0;
     for (let I = 0; I < arrayOfArray.length; I++) {
         const element = arrayOfArray[I];
-        let counter1 = 0;
         for (let j = 0; j < element.length; j++) {
             const number = element[j];
-            counter1 += number;
+            counter += number;
         }
-        counter += counter1;
     }
     return counter
 }
@@ -275,9 +272,19 @@ function arrayIndexSum(arrayOfArray) {
             newArray[j] += arrayOfArray[i][j];
         }
     }
-
     return newArray;
 }
 
 const arrayResult15 = arrayIndexSum(array3);
 console.log('somma degli indici degli array', arrayResult15);
+
+
+function getSize(width, height, depth){
+  
+    let newArray=[]
+    
+    const area = (2*width*height)+(2*depth*height)+(2*width*height);
+    const volume = height*width*depth;
+    
+    newArray.push(area, volume);
+  }
