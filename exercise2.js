@@ -233,5 +233,5 @@ function capMe(names) {
     
 }
 
-  
+//ESERCIZIO 9 CODE-WARS (How Green Is My Valley?)
 
