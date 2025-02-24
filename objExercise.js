@@ -78,18 +78,18 @@ const students = [student1, student2, student3, student4, student5, student6, st
 
 // 2) scrivete una funzione che restituisca l'età media degli studenti
 
-function averageAge(studentsObj) {
+function averageAge(studentsArray) {
     const currentYear = 2025;
     let totalAge = 0;
     // Calcola l'età di ogni studente e somma le età
-    for (let i = 0; i < studentsObj.length; i++) {
-        const student = studentsObj[i];
+    for (let i = 0; i < studentsArray.length; i++) {
+        const student = studentsArray[i];
         const age = currentYear - student.yob;
         totalAge += age;
     }
     // Calcola la media delle età
     const averageAge = totalAge / students.length;
-    // Arrotonda la media a due decimali
+
     return Math.round(averageAge);
 }
 const averageAgeValue = averageAge(students);
@@ -127,14 +127,14 @@ function genereArray(studentsArray){
     return genereArray
 }
 
-function genereCounter(studentsArray){
+function genereCounter(studentsGenereArray){
     let genereSumArray = [];
     let maleSum= 0;
     let femaleSum= 0;
     let otherGenereSum = 0;
 
-    for (let i = 0; i < studentsArray.length; i++) {
-        const genere = studentsArray[i].toLowerCase();
+    for (let i = 0; i < studentsGenereArray.length; i++) {
+        const genere = studentsGenereArray[i].toLowerCase();
         if (genere === "male") {
             maleSum ++;
         } else if (genere === "female"){
@@ -153,11 +153,11 @@ console.log("Gender distrubution in the course",studentGenere);
 
 // 5) scrivete una funzione che restituisca la media della media degli studenti
 
-function courseAverage(studentsObj) {
+function courseAverage(studentsArray) {
     let averageCourseMarks= 0;
 
-    for (let i = 0; i < studentsObj.length; i++) {
-        const student = studentsObj[i];
+    for (let i = 0; i < studentsArray.length; i++) {
+        const student = studentsArray[i];
         const marksArray = student.marks;
         let marksSum = 0;
         for (const mark of marksArray) {
@@ -167,7 +167,7 @@ function courseAverage(studentsObj) {
         averageCourseMarks += averageMark;
         }
 
-        averageCourseMarks = averageCourseMarks/studentsObj.length;
+        averageCourseMarks = averageCourseMarks/studentsArray.length;
         return averageCourseMarks;
 }
 
@@ -207,6 +207,9 @@ console.log(nationalityObj(students));
 
 
 // 7) primi due esercizi eloquent javascript: The sum of a range; Reversing an array
+
+
+
 
 // 8) https://jessbayer.com/
 
