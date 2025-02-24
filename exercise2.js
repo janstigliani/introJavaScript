@@ -229,9 +229,38 @@ function getSize(width, height, depth){
   
 //ESERCIZIO 8 CODE-WARS (Name Array Capping)
 
-function capMe(names) {
+function capMe(namesArray) {
+    const capitalizedLetterArray = []
     
+    for (const name of namesArray) {
+        const newName = name[0].toUpperCase() + name.slice(1).toLowerCase();
+        capitalizedLetterArray.push(newName);
+    }
+    return capitalizedLetterArray;
 }
 
 //ESERCIZIO 9 CODE-WARS (How Green Is My Valley?)
 
+//left wing decreasing
+//right wing increasing
+//l-r(int sx - int dx) minore possibile
+
+//trovo il min, e lo inizializzo in un array vuoto.
+//se array part è pari, arrayMin farà parte della right wing; altrimenti sarà un array di un elemento
+//prendo il num più piccolo e lo metto alla 0 di un nuovo array (left wing)
+//prendo il num più grande e lo metto alla 0 di un nuovo array (left wing)
+//prendo il secondo num più grande e lo metto nell'array a sx infondo
+
+function makeValley(arrOfInt) {
+    const orderedArray = [];
+
+    if (arrOfInt.length%2 === 0) {
+        //il numero più basso è il primo a destra
+    }else{
+        //lasci il numero più basso al centro
+    }
+    for (let i = 0; i < arrOfInt.length; i++) {
+        const num1 = arrOfInt[i];
+        
+    }
+}
