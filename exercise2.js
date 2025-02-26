@@ -251,44 +251,7 @@ function capMe(namesArray) {
 //prendo il num più grande e lo metto alla 0 di un nuovo array (left wing)
 //prendo il secondo num più grande e lo metto nell'array a sx infondo
 
-arrayNumbers = [12, 24, 56, 78, -45, 22, 61]
 
-// function makeValley(arrayOfInt) {
-//     const orderedArray = [];
-//     const rightWing = [];
-//     const leftWing = [];
-//     const bottom = [];
-
-//     let arrayCopy = [...arrayOfInt];
-//     const indexOfMin= arrayCopy.indexOf(Math.min());
-//     const bottomElement = arrayCopy[indexOfMin];
-//     arrayCopy = arrayCopy.splice(indexOfMin, 1);
-//     bottom.push(bottomElement);
-//     debugger
-//     for (let i = 0; i < arrayCopy.length; i++) {
-//         number = arrayCopy.splice(Math.min(arrayCopy))
-//         if (arrayCopy.length % 2 === 0) {
-
-//             rightWing = bottom.concat(rightWing);
-
-//             if (i % 2 === 0) {
-//                 leftWing.push(number);
-//             } else {
-//                 rightWing.push(number);
-//             }
-//             orderedArray.push(rightWing.concat(leftWing));
-//         } else {
-//             if (i % 2 === 0) {
-//                 leftWing.push(number);
-//             } else {
-//                 rightWing.push(number);
-//             }
-//             orderedArray.push(rightWing.concat(bottom.concat(leftWing)));
-//         }
-//     }
-//     debugger;
-//     return orderedArray;
-// }
 
 function makeValley(arrayOfInt) {
 

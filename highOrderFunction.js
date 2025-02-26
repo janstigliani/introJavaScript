@@ -161,6 +161,64 @@ console.log(newArray12);
 //// funzione che tiene dentro tutti i numeri minori di 5
 
 const newArray13= testArray.filter(number => number<5);
-console.log(newArray13);
+console.log("filter min5",newArray13);
 
-//// funzione che 
+//// funzione che tiene dentro testArray2 tutte le parole più lughe di 6 caratteri
+
+const newArray14 = testArray2.filter(str => str.length>6);
+console.log("filter magg 6",newArray14)
+
+//// funzione che rimuove da testArray2 tutte le stringhe con indice pari
+
+const newArray15 = testArray2.filter((str, index) => index %2 !== 0); 
+// const newArray15 = testArray2.filter((_,index) => index % 2 === 1)// si può usare _ al posto di str che è un parametro che devo passare perché è posizionale l'ingresso dei parametri da filter, ma non lo uso, per cui posso segnalare così che è un parametro inutile
+console.log(newArray15);
+
+//// REDUCE (Ricorda: può ritornare cose diverse da un array)
+
+function sumAll(arrayOfNumbers) {
+    let sum = 0;
+
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        const number = arrayOfNumbers[i];
+        
+        sum += number;
+    }
+    return sum;
+}
+
+const newArray16 = sumAll(testArray);
+console.log("sumAll", newArray16);
+
+function reduce(array, reducingFunction, startingAccumulator) {
+    
+    let accumulator = startingAccumulator;
+
+    for (let i = 0; i < array.length; i++) {
+        
+        const current = array[i];
+        
+        accumulator = reducingFunction(accumulator, current, i, array)
+    }
+    return accumulator;
+}
+
+function sum(accumulator, current) {
+    const newAccumulator = accumulator + current;
+    return newAccumulator;
+}
+
+// const sum1 = reduce(testArray,sum,0);
+const sum1 = testArray.reduce(sum,0);
+console.log("sum",sum1);
+
+//funzione che appende ogni string dell'array in un unica stringa
+
+const stringAppend = testArray2.reduce((a, c) => a+c, "");
+console.log("stringAppend",stringAppend);
+
+//moltiplica tra loro tutti i numeri di testArray
+
+const numMolt = testArray.reduce((a,c) => a*c, 1);
+console.log("number multiply",numMolt);
+

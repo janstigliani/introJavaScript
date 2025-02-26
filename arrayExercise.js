@@ -277,14 +277,3 @@ function arrayIndexSum(arrayOfArray) {
 
 const arrayResult15 = arrayIndexSum(array3);
 console.log('somma degli indici degli array', arrayResult15);
-
-
-function getSize(width, height, depth){
-  
-    let newArray=[]
-    
-    const area = (2*width*height)+(2*depth*height)+(2*width*height);
-    const volume = height*width*depth;
-    
-    newArray.push(area, volume);
-  }
