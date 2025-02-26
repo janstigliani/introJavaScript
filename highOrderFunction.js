@@ -222,3 +222,47 @@ console.log("stringAppend",stringAppend);
 const numMolt = testArray.reduce((a,c) => a*c, 1);
 console.log("number multiply",numMolt);
 
+// rimuove parola con indice pari, rendi maiuscola la prima lettera delle altre
+
+const stocazzo = testArray2.filter((str, i) => i % 2 === 1)
+                           .map(str =>{
+                            const firstChar = str[0];
+                            const restStr = str.slice(1);
+                            const newStr = firstChar.toUpperCase() + restStr;
+                            return newStr;
+                           })
+
+const stocazzo1 = testArray2.reduce(a, c, i => {
+    if(i % 2 === 1){
+        const firstChar = c[0];
+        const restStr = c.slice(1);
+        const newStr = firstChar.toUpperCase() + restStr;
+        a.push(newStr)
+        return newStr;
+    }else{
+        return a;
+    }
+
+}, [])
+
+function isOdd(number) {
+    if (number % 2 === 1) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function capitalizeFirstChar(str){
+    const firstChar = str[0];
+    const restStr = str.slice(1);
+    const newStr = firstChar.toUpperCase() + restStr;
+    return newStr;
+}
+
+const stocazzo3 = testArray2.filter(isOdd)
+                           .map(capitalizeFirstChar);
+
+console.log("primo pezzo", stocazzo);
+console.log("primo pezzo", stocazzo1);
+console.log("primo pezzo", stocazzo3);
