@@ -227,7 +227,7 @@ function getSize(width, height, depth) {
     return newArray;
 }
 
-//ESERCIZIO 8 CODE-WARS (Name Array Capping)
+//ESERCIZIO 9 CODE-WARS (Name Array Capping)
 
 function capMe(namesArray) {
     const capitalizedLetterArray = []
@@ -239,7 +239,7 @@ function capMe(namesArray) {
     return capitalizedLetterArray;
 }
 
-//ESERCIZIO 9 CODE-WARS (How Green Is My Valley?)
+//ESERCIZIO 10 CODE-WARS (How Green Is My Valley?)
 
 //left wing decreasing
 //right wing increasing
@@ -250,8 +250,6 @@ function capMe(namesArray) {
 //prendo il num più piccolo e lo metto alla 0 di un nuovo array (left wing)
 //prendo il num più grande e lo metto alla 0 di un nuovo array (left wing)
 //prendo il secondo num più grande e lo metto nell'array a sx infondo
-
-
 
 function makeValley(arrayOfInt) {
 
@@ -277,30 +275,3 @@ function makeValley(arrayOfInt) {
 
 const roba = makeValley([]);
 console.log(roba);
-
-// fatto fa copilot, non ordina nella maniera corretta
-
-// function makeValley(arrayOfInt) {
-//     const orderedArray = [];
-//     const rightWing = [];
-//     const leftWing = [];
-    
-//     const arrayCopy = arrayOfInt.slice().sort((a, b) => b - a); // Sort in descending order
-
-//     for (let i = 0; i < arrayCopy.length; i++) {
-//         if (i % 2 === 0) {
-//             leftWing.push(arrayCopy[i]);
-//         } else {
-//             rightWing.push(arrayCopy[i]);
-//         }
-//     }
-
-//     rightWing.reverse(); // Reverse the right wing to get the correct order
-//     orderedArray.push(...leftWing, ...rightWing); // Combine left and right wings
-
-//     return orderedArray;
-// }
-
-// const arrayNumbers = [12, 24, 56, 78, -45, 22, 61];
-// const roba = makeValley(arrayNumbers);
-// console.log(roba);
