@@ -291,14 +291,28 @@ arrayNumbers = [12, 24, 56, 78, -45, 22, 61]
 // }
 
 function makeValley(arrayOfInt) {
-    const orderedArray = [];
 
-    const arrayDescending = arr.sort((a,b) => b - a);
+    const leftWing = [];
+    const rightWing = [];
+    const bottom = [];
+    let copyArray = [];
 
-    return orderedArray;
+    copyArray = arrayOfInt.sort((a, b) => b - a)
+    bottom.push(copyArray.pop());
+
+    for (let i = 0; i < copyArray.length; i++) {
+        const number = copyArray[i];
+        if (i % 2 === 0) {
+            leftWing.push(number)
+        }
+        if (i % 2 !== 0) {
+            rightWing.push(number)
+        }
+    }
+    return leftWing.concat(bottom.concat(rightWing.reverse()));
 }
 
-const roba = makeValley(arrayNumbers);
+const roba = makeValley([]);
 console.log(roba);
 
 // fatto fa copilot, non ordina nella maniera corretta
