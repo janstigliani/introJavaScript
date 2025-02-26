@@ -261,7 +261,7 @@ function capitalizeFirstChar(str){
 }
 
 const stocazzo3 = testArray2.filter(isOdd)
-                           .map(capitalizeFirstChar);
+                            .map(capitalizeFirstChar);
 
 console.log("primo pezzo", stocazzo);
 console.log("primo pezzo", stocazzo1);
