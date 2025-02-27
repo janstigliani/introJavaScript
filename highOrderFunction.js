@@ -232,18 +232,18 @@ const stocazzo = testArray2.filter((str, i) => i % 2 === 1)
                             return newStr;
                            })
 
-const stocazzo1 = testArray2.reduce(a, c, i => {
-    if(i % 2 === 1){
-        const firstChar = c[0];
-        const restStr = c.slice(1);
-        const newStr = firstChar.toUpperCase() + restStr;
-        a.push(newStr)
-        return newStr;
-    }else{
-        return a;
-    }
+// const stocazzo1 = testArray2.reduce(a, c, i => {
+//     if(i % 2 === 1){
+//         const firstChar = c[0];
+//         const restStr = c.slice(1);
+//         const newStr = firstChar.toUpperCase() + restStr;
+//         a.push(newStr)
+//         return newStr;
+//     }else{
+//         return a;
+//     }
 
-}, [])
+// }, [])
 
 function isOdd(number) {
     if (number % 2 === 1) {
@@ -264,5 +264,80 @@ const stocazzo3 = testArray2.filter(isOdd)
                             .map(capitalizeFirstChar);
 
 console.log("primo pezzo", stocazzo);
-console.log("primo pezzo", stocazzo1);
+// console.log("primo pezzo", stocazzo1);
 console.log("primo pezzo", stocazzo3);
+
+// FIND
+
+function isEven(number) {
+    // if (number % 2 === 0){
+    //     return true;
+    // } else{
+    //     return false;
+    // }
+    return number % 2 === 0;
+}
+
+console.log(testArray.filter(isEven));
+console.log(testArray.find(isEven));
+
+// SOME (c'è almeno un elemento che soddisfa la condizione?)
+
+console.log(testArray.some(isEven));
+
+// EVERY (tutti soddisfano la condizione?)
+
+console.log(testArray.every(isEven));
+
+// SORT 
+
+function sortingFunctionDecreasing(first, second){
+    if (first < second) {
+        return 1;
+    }else if(first > second){
+        return -1;
+    }else{
+        return 0;
+    }
+}
+
+function sortingFunctionincreasing(first, second){
+    if (first > second) {
+        return 1;
+    }else if(first < second){
+        return -1;
+    }else{
+        return 0;
+    }
+}
+
+// testArray.sort(sortingFunctionincreasing);
+// console.log(testArray);
+
+// testArray.sort(sortingFunctionDecreasing);
+// console.log(testArray);
+
+
+// testArray.sort((f,s) => f-s);
+// console.log(testArray);
+// testArray.sort((f,s) => s-f);
+// console.log(testArray);
+
+// //dalla a alla z
+// testArray2.sort((fStr, sStr) => fStr.localeCompare(sStr))
+// console.log(testArray2);
+
+// //dalla z alla a
+// testArray2.sort((fStr, sStr) => sStr.localeCompare(fStr))
+// console.log(testArray2);
+
+
+function betterSort(array,sortingFunction){
+    const newArray= [...array];
+    newArray.sort(sortingFunction);
+    return newArray;
+}
+
+const sortedArray = betterSort(testArray2, (fStr, sStr) => sStr.localeCompare(fStr));
+console.log(testArray2);
+console.log(sortedArray)

@@ -248,32 +248,36 @@ console.log('somma delle lunghezze degli array', arrayResult14);
 //     newArray.push(element0, element1, element2, element3, element4)
 // }
 
-//fatta da copilote
 
-function arrayIndexSum(arrayOfArray) {
-    let newArray = [];
-    let maxLength = 0;
+function arrayIndexSum1(arrayOfArray) {
+    const parkingArray=[];
 
-    // Find the maximum length of the arrays
     for (let i = 0; i < arrayOfArray.length; i++) {
-        if (arrayOfArray[i].length > maxLength) {
-            maxLength = arrayOfArray[i].length;
+        const array = arrayOfArray[i];
+        for (let j = 0; j < array.length; j++) {
+            const number = array[j];
+            if(parkingArray[j]){
+                parkingArray[j] += number;
+            }else{
+                parkingArray[j] = number;
+            }
+            
         }
+        
     }
-
-    // Initialize newArray with zeros
-    for (let i = 0; i < maxLength; i++) {
-        newArray.push(0);
-    }
-
-    // Sum the elements with the same index
-    for (let i = 0; i < arrayOfArray.length; i++) {
-        for (let j = 0; j < arrayOfArray[i].length; j++) {
-            newArray[j] += arrayOfArray[i][j];
-        }
-    }
-    return newArray;
+    return parkingArray;
 }
 
-const arrayResult15 = arrayIndexSum(array3);
-console.log('somma degli indici degli array', arrayResult15);
+console.log(arrayIndexSum1(array4));
+
+const sumallEqualIndex2 = array3.reduce((a,c) => {
+    for(letj = 0; j < c.length; j++){
+        const number = c[j];
+        if (a[j]) {
+            a[j] += number;
+        } else {
+            a[j] = number;
+        }
+    }
+})
+
