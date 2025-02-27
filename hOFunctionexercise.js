@@ -49,21 +49,27 @@ console.log('3.2) media dei valori', mean1);
 
 //esercizio 4: restituire il valore più basso e il più alto (reduce)
 
-const minMax = array1.reduce((a, c) => c === Math.min(...array1)|| c === Math.min(...array1), [-Infinity,Infinity]);
-console.log('4.1) minimo e massimo', minMax)
+// const minMax = array1.reduce((a, c) => c === Math.min(...array1)|| c === Math.min(...array1), [-Infinity,Infinity]);
+// const minMax = array1.filter(num => num >)
+// console.log('4.1) minimo e massimo', minMax)
 
-function isMinMax(a,c) {
-    const newAccumulator= []
-    if (c === Math.min(array1)) {
-        newAccumulator.push(c);
-    } else if(c === Math.min(array1)){
-        newAccumulator.push(c);
-    }
-    return newAccumulator;
-}
+// function isMinMax(a,c) {
+//     const newAccumulator= []
+//     if (c === Math.min(array1)) {
+//         newAccumulator.push(c);
+//     } else if(c === Math.min(array1)){
+//         newAccumulator.push(c);
+//     }
+//     return newAccumulator;
+// }
 
-const minMax1 = array1.reduce(isMinMax, []);
-console.log('4.2) minimo e massimo', minMax1);
+// const minMax1 = array1.reduce(isMinMax, []);
+// console.log('4.2) minimo e massimo', minMax1);
+
+const findMinMax = array1.reduce((acc, curr) => [Math.min(acc[0], curr), Math.max(acc[1], curr)], [Infinity, -Infinity]);
+
+
+console.log('4.2) minimo e massimo', findMinMax);
 
 
 const array2 = ['pippo', 'pluto', 'paperino', 'qui', 'quo', 'qua', 'clarabella', 'minnie'];
