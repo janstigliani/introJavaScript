@@ -1,267 +1,267 @@
-// //provare le notazioni sia con funzione esterna e messa nella arrow, e direttamente nella arrow
+//provare le notazioni sia con funzione esterna e messa nella arrow, e direttamente nella arrow
 
-// const array1 = [23, 14, 56, 44, 3, 0, -1, 55, -12, 60, 8];
+const array1 = [23, 14, 56, 44, 3, 0, -1, 55, -12, 60, 8];
 
-// //esercizio 1: filtrare tutti i numeri minori o uguali a 0 (filter)
+//esercizio 1: filtrare tutti i numeri minori o uguali a 0 (filter)
 
-// const underEqualZero = array1.filter(num => num <= 0);
-// console.log('1.1) numeri minori o uguali di 0', underEqualZero);
+const underEqualZero = array1.filter(num => num <= 0);
+console.log('1.1) numeri minori o uguali di 0', underEqualZero);
 
-// function filterUnderEqualZero(num){
-//     if(num <= 0){
-//         return true;
-//     }else{
-//         return false;
+function filterUnderEqualZero(num){
+    if(num <= 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+const underEqualZero1 = array1.filter(filterUnderEqualZero);
+console.log('1.2) numeri minori o uguali di 0', underEqualZero1);
+
+
+//esercizio 2: convertire in gradi fahrenheit ipotizzando che l'unità di partenza sia celsius (map)
+
+const convertToFahrenheit = array1.map(num => (num*(9/5))+32);
+console.log('2.1) conversione celsius\farhenait', convertToFahrenheit);
+
+function ToFahrenheitFunction(num){
+    convertedNumber= (num*(9/5))+32;
+    return convertedNumber;
+}
+
+const convertToFahrenheit1 = array1.map(ToFahrenheitFunction);
+console.log('2.2) conversione celsius\farhenait', convertToFahrenheit1);
+
+
+//esercizio 3: fare la media dei valori (reduce)
+
+const mean = array1.reduce((a, c) => (a+c), 0) / array1.length;
+console.log('3.1) media dei valori', mean)
+
+function sum(a,c) {
+    a += c;
+    return a;
+}
+
+const mean1 = array1.reduce(sum, 0) / array1.length;
+console.log('3.2) media dei valori', mean1);
+
+
+//esercizio 4: restituire il valore più basso e il più alto (reduce)
+
+// const minMax = array1.reduce((a, c) => c === Math.min(...array1)|| c === Math.min(...array1), [-Infinity,Infinity]);
+// const minMax = array1.filter(num => num >)
+// console.log('4.1) minimo e massimo', minMax)
+
+// function isMinMax(a,c) {
+//     const newAccumulator= []
+//     if (c === Math.min(array1)) {
+//         newAccumulator.push(c);
+//     } else if(c === Math.min(array1)){
+//         newAccumulator.push(c);
 //     }
+//     return newAccumulator;
 // }
 
-// const underEqualZero1 = array1.filter(filterUnderEqualZero);
-// console.log('1.2) numeri minori o uguali di 0', underEqualZero1);
+// const minMax1 = array1.reduce(isMinMax, []);
+// console.log('4.2) minimo e massimo', minMax1);
+
+const findMinMax = array1.reduce(([min, max], curr) => [Math.min(min, curr), Math.max(max, curr)], [Infinity, -Infinity]);
 
 
-// //esercizio 2: convertire in gradi fahrenheit ipotizzando che l'unità di partenza sia celsius (map)
-
-// const convertToFahrenheit = array1.map(num => (num*(9/5))+32);
-// console.log('2.1) conversione celsius\farhenait', convertToFahrenheit);
-
-// function ToFahrenheitFunction(num){
-//     convertedNumber= (num*(9/5))+32;
-//     return convertedNumber;
-// }
-
-// const convertToFahrenheit1 = array1.map(ToFahrenheitFunction);
-// console.log('2.2) conversione celsius\farhenait', convertToFahrenheit1);
+console.log('4.2) minimo e massimo', findMinMax);
 
 
-// //esercizio 3: fare la media dei valori (reduce)
+const array2 = ['pippo', 'pluto', 'paperino', 'qui', 'quo', 'qua', 'clarabella', 'minnie'];
 
-// const mean = array1.reduce((a, c) => (a+c), 0) / array1.length;
-// console.log('3.1) media dei valori', mean)
+//5) filtrare tutti i nomi piu grandi di 4 caratteri (filter)
 
-// function sum(a,c) {
-//     a += c;
-//     return a;
-// }
+const namesSmallerThen4Char = array2.filter(str => str.length < 4);
+console.log('5.1) nomi più piccoli di 4 caratteri', namesSmallerThen4Char);
 
-// const mean1 = array1.reduce(sum, 0) / array1.length;
-// console.log('3.2) media dei valori', mean1);
+function isSmallerThen4Char(str){
+    if (str.length < 4) {
+        return true;
+    }else{
+        return false;
+    }
+}
 
-
-// //esercizio 4: restituire il valore più basso e il più alto (reduce)
-
-// // const minMax = array1.reduce((a, c) => c === Math.min(...array1)|| c === Math.min(...array1), [-Infinity,Infinity]);
-// // const minMax = array1.filter(num => num >)
-// // console.log('4.1) minimo e massimo', minMax)
-
-// // function isMinMax(a,c) {
-// //     const newAccumulator= []
-// //     if (c === Math.min(array1)) {
-// //         newAccumulator.push(c);
-// //     } else if(c === Math.min(array1)){
-// //         newAccumulator.push(c);
-// //     }
-// //     return newAccumulator;
-// // }
-
-// // const minMax1 = array1.reduce(isMinMax, []);
-// // console.log('4.2) minimo e massimo', minMax1);
-
-// const findMinMax = array1.reduce(([min, max], curr) => [Math.min(min, curr), Math.max(max, curr)], [Infinity, -Infinity]);
+const namesSmallerThen4Char1 = array2.filter(isSmallerThen4Char);
+console.log('5.2) nomi più piccoli di 4 caratteri', namesSmallerThen4Char1);
 
 
-// console.log('4.2) minimo e massimo', findMinMax);
+//6) trasformare tutte le stringhe in maiuscolo (map)
+
+const upperCase = array2.map(str => str.toUpperCase());
+console.log('6.1) stringhe maiuscole', upperCase);
+
+function upperCaseFunction(str){
+    strMai = str.toUpperCase();
+    return strMai;
+}
+const upperCase1 = array2.map(upperCaseFunction);
+console.log('6.2) stringhe maiuscole', upperCase1);
 
 
-// const array2 = ['pippo', 'pluto', 'paperino', 'qui', 'quo', 'qua', 'clarabella', 'minnie'];
+//7) mettere SOLO le iniziali maiuscole (map)
 
-// //5) filtrare tutti i nomi piu grandi di 4 caratteri (filter)
+const capitalizeStr = array2.map(str => str[0].toUpperCase() + str.slice(1));
+console.log('7.1) solo iniziali maiuscole', capitalizeStr);
 
-// const namesSmallerThen4Char = array2.filter(str => str.length < 4);
-// console.log('5.1) nomi più piccoli di 4 caratteri', namesSmallerThen4Char);
+function capitalizeStrFun(str) {
+    strCap = str[0].toUpperCase() + str.slice(1);
+    return strCap;
+}
 
-// function isSmallerThen4Char(str){
-//     if (str.length < 4) {
-//         return true;
-//     }else{
-//         return false;
-//     }
-// }
-
-// const namesSmallerThen4Char1 = array2.filter(isSmallerThen4Char);
-// console.log('5.2) nomi più piccoli di 4 caratteri', namesSmallerThen4Char1);
+const capitalizeStr1 = array2.map(capitalizeStrFun);
+console.log('7.2) solo iniziali maiuscole', capitalizeStr1);
 
 
-// //6) trasformare tutte le stringhe in maiuscolo (map)
+//8) restiture una stringa composta dalle iniziale delle parole (reduce)
 
-// const upperCase = array2.map(str => str.toUpperCase());
-// console.log('6.1) stringhe maiuscole', upperCase);
+const firstCharString = array2.reduce((a, c) => a+c[0], "");
+console.log('8.1) stringa con prima lettera di ogni parola', firstCharString);
 
-// function upperCaseFunction(str){
-//     strMai = str.toUpperCase();
-//     return strMai;
-// }
-// const upperCase1 = array2.map(upperCaseFunction);
-// console.log('6.2) stringhe maiuscole', upperCase1);
+function getFirstChar(a, c) {
+    const newA= a+c[0];
+    return newA;
+}
 
+const firstCharString1 = array2.reduce(getFirstChar, "");
+console.log('8.2) stringa con prima lettera di ogni parola', firstCharString1);
 
-// //7) mettere SOLO le iniziali maiuscole (map)
+//9) somma tutti i caratteri di tutte le stringhe (reduce)
 
-// const capitalizeStr = array2.map(str => str[0].toUpperCase() + str.slice(1));
-// console.log('7.1) solo iniziali maiuscole', capitalizeStr);
+const charSum = array2.reduce((globalAcc, currentName) => globalAcc+ [...currentName].reduce((globalAcc,char) => globalAcc +char, ''));
+console.log('9.1) somma caratteri stringhe', charSum);
 
-// function capitalizeStrFun(str) {
-//     strCap = str[0].toUpperCase() + str.slice(1);
-//     return strCap;
-// }
+//10) eliminare le vocali dalle stringhe (map+filter)
 
-// const capitalizeStr1 = array2.map(capitalizeStrFun);
-// console.log('7.2) solo iniziali maiuscole', capitalizeStr1);
-
-
-// //8) restiture una stringa composta dalle iniziale delle parole (reduce)
-
-// const firstCharString = array2.reduce((a, c) => a+c[0], "");
-// console.log('8.1) stringa con prima lettera di ogni parola', firstCharString);
-
-// function getFirstChar(a, c) {
-//     const newA= a+c[0];
-//     return newA;
-// }
-
-// const firstCharString1 = array2.reduce(getFirstChar, "");
-// console.log('8.2) stringa con prima lettera di ogni parola', firstCharString1);
-
-// //9) somma tutti i caratteri di tutte le stringhe (reduce)
-
-// const charSum = array2.reduce((globalAcc, currentName) => globalAcc+ [...currentName].reduce((globalAcc,char) => globalAcc +char, ''));
-// console.log('9.1) somma caratteri stringhe', charSum);
-
-// //10) eliminare le vocali dalle stringhe (map+filter)
-
-// // prima funzione normale poi arrowed
-
-// // const strNoVowels = array2.map(str => 
-// //                           .filter(char => char.toLowerCase !== "a" || char.toLowerCase !== "e" || char.toLowerCase !== "i" || char.toLowerCase !== "o" || char.toLowerCase !== "u"))
-                          
-// // function singleChar(str) {
-    
-// //     newArray = str.split("");
-// //     return newArray;
-// // }
-
-// // function isVowel(char) {
-// //     if (char.toLowerCase() !== "a" && 
-// //     char.toLowerCase() !== "e" && 
-// //     char.toLowerCase() !== "i" && 
-// //     char.toLowerCase() !== "o" && 
-// //     char.toLowerCase() !== "u" ) {
-// //         return true;
-// //     } else {
-// //         return false;
-// //     }
-// // }
-
-// // const strNoVowels = array2.map(singleChar) 
-// //                           .filter(isVowel)
-// //                           //vanno ancora riunite
-// // console.log(strNoVowels);
-
-// function isVowel(char) {
-//     return !["a", "e", "i", "o", "u"].includes(char.toLowerCase());
-// }
+// prima funzione normale poi arrowed
 
 // const strNoVowels = array2.map(str => 
-//     str.split('').filter(isVowel).join('')
-// );
-// console.log('10.1) eliminare le vocali dalle stringhe', strNoVowels);
-
-
-// const strNoVowels1 = array2.map(str => str.split('')
-//                            .filter(char => !["a", "e", "i", "o", "u"].includes(char.toLowerCase())).join('')
-// );
-// console.log('10.2) eliminare le vocali dalle stringhe', strNoVowels1);
-
-
-// //11) restituire un array di numeri che sono le lunghezze delle singole parole (map)
-
-// const array3 = [[1, 2, 3], [3, 2, 1, 0], [0, 0, 0, 0, 0]];
-
-// //12) restituire un array di numeri che sono le lunghezze dei sigoli array (map)
-
-// //13) sommare tutti i numeri in tutti gli array (reduce)
-
-// //14) sommare tutte le lunghezze degli array (reduce)
-
-// //15) sommare tutti i numeri con indice uguale e restituire un array di risultati (reduce)
-
-// // const sumofEqualIndex = array3.reduce((a,c,i,original) => {
-// //     if (i === 0) {
-// //         a = c.map((num, i) => {
-// //             let sum = 0
-// //             original.forEach(array => {
-// //                 sum += array[i]
-// //             });
-// //             return sum;
-// //         })
-// //         return a;
-// //     }else{
-// //         a = a.reduce((a,c))
-// //     }
-   
-// // }, [])
-
-
-
-// // console.log(sumofEqualIndex);
-
-// function arrayIndexSum1(arrayOfArray) {
-//     const parkingArray=[];
-
-//     for (let i = 0; i < arrayOfArray.length; i++) {
-//         const array = arrayOfArray[i];
-//         for (let j = 0; j < array.length; j++) {
-//             const number = array[j];
-//             if(parkingArray[j]){
-//                 parkingArray[j] += number;
-//             }else{
-//                 parkingArray[j] = number;
-//             }
-            
-//         }
-        
-//     }
-//     return parkingArray;
+//                           .filter(char => char.toLowerCase !== "a" || char.toLowerCase !== "e" || char.toLowerCase !== "i" || char.toLowerCase !== "o" || char.toLowerCase !== "u"))
+                          
+// function singleChar(str) {
+    
+//     newArray = str.split("");
+//     return newArray;
 // }
 
-// console.log(arrayIndexSum1(array3));
-
-// const sumallEqualIndex2 = array3.reduce((a, c) => {
-//     for (let j = 0; j < c.length; j++) {
-//         const number = c[j];
-//         if (a[j]) {
-//             a[j] += number;
-//         } else {
-//             a[j] = number;
-//         }
+// function isVowel(char) {
+//     if (char.toLowerCase() !== "a" && 
+//     char.toLowerCase() !== "e" && 
+//     char.toLowerCase() !== "i" && 
+//     char.toLowerCase() !== "o" && 
+//     char.toLowerCase() !== "u" ) {
+//         return true;
+//     } else {
+//         return false;
 //     }
-//     return a;
-// }, []);
+// }
 
-// console.log(sumallEqualIndex2);
+// const strNoVowels = array2.map(singleChar) 
+//                           .filter(isVowel)
+//                           //vanno ancora riunite
+// console.log(strNoVowels);
 
-// const sumallEqualIndex3 = array3.reduce((a, c) => {
-//     for (let j = 0; j < c.length; j++) {
-//         const number = c[j];
-//         if (a[j]) {
-//             a[j] += number;
-//         } else {
-//             a[j] = number;
-//         }
+function isVowel(char) {
+    return !["a", "e", "i", "o", "u"].includes(char.toLowerCase());
+}
+
+const strNoVowels = array2.map(str => 
+    str.split('').filter(isVowel).join('')
+);
+console.log('10.1) eliminare le vocali dalle stringhe', strNoVowels);
+
+
+const strNoVowels1 = array2.map(str => str.split('')
+                           .filter(char => !["a", "e", "i", "o", "u"].includes(char.toLowerCase())).join('')
+);
+console.log('10.2) eliminare le vocali dalle stringhe', strNoVowels1);
+
+
+//11) restituire un array di numeri che sono le lunghezze delle singole parole (map)
+
+const array3 = [[1, 2, 3], [3, 2, 1, 0], [0, 0, 0, 0, 0]];
+
+//12) restituire un array di numeri che sono le lunghezze dei sigoli array (map)
+
+//13) sommare tutti i numeri in tutti gli array (reduce)
+
+//14) sommare tutte le lunghezze degli array (reduce)
+
+//15) sommare tutti i numeri con indice uguale e restituire un array di risultati (reduce)
+
+// const sumofEqualIndex = array3.reduce((a,c,i,original) => {
+//     if (i === 0) {
+//         a = c.map((num, i) => {
+//             let sum = 0
+//             original.forEach(array => {
+//                 sum += array[i]
+//             });
+//             return sum;
+//         })
+//         return a;
+//     }else{
+//         a = a.reduce((a,c))
 //     }
-//     return a;
-// }, []);
+   
+// }, [])
 
-// console.log(sumallEqualIndex3);
+
+
+// console.log(sumofEqualIndex);
+
+function arrayIndexSum1(arrayOfArray) {
+    const parkingArray=[];
+
+    for (let i = 0; i < arrayOfArray.length; i++) {
+        const array = arrayOfArray[i];
+        for (let j = 0; j < array.length; j++) {
+            const number = array[j];
+            if(parkingArray[j]){
+                parkingArray[j] += number;
+            }else{
+                parkingArray[j] = number;
+            }
+            
+        }
+        
+    }
+    return parkingArray;
+}
+
+console.log(arrayIndexSum1(array3));
+
+const sumallEqualIndex2 = array3.reduce((a, c) => {
+    for (let j = 0; j < c.length; j++) {
+        const number = c[j];
+        if (a[j]) {
+            a[j] += number;
+        } else {
+            a[j] = number;
+        }
+    }
+    return a;
+}, []);
+
+console.log(sumallEqualIndex2);
+
+const sumallEqualIndex3 = array3.reduce((a, c) => {
+    for (let j = 0; j < c.length; j++) {
+        const number = c[j];
+        if (a[j]) {
+            a[j] += number;
+        } else {
+            a[j] = number;
+        }
+    }
+    return a;
+}, []);
+
+console.log(sumallEqualIndex3);
 
 
 
@@ -389,8 +389,43 @@ allStudents.sort(sortByAgeAndSurname);
 
 console.log(allStudents);
 
-//1) mettere in ordine gli studenti x nome e in caso di omonimia riordinarli per età crescente
+//1) mettere studenti in ordine per nome, in caso di omonimia usare come ordine aggiuntivo l'età crescente
 
-//2) mettere in ordine gli studenti per la media dei voti
+function sortByNameAndAge(student1, student2) {
+    const name1 = student1.name;
+    const name2 = student2.name;
 
-//3) 
+    if (name1 === name2) {
+        const age1 = student1.yob;
+        const age2 = student2.yob;
+
+        return age1 - age2;
+    }
+
+    return name1.localeCompare(name2);
+}
+allStudents.sort(sortByNameAndAge);
+console.log(allStudents);
+
+
+//2) mettere studenti in ordine per media dei voti
+
+function sortByMean(student1, student2) {
+    const mean1 = calculateMean(student1.marks);
+    const mean2 = calculateMean(student2.marks);
+
+    return mean1 - mean2;
+}
+
+function calculateMean(arrayOfNumbers) {
+    let sumOfMarks = 0;
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        const mark = arrayOfNumbers[i];
+        sumOfMarks = sumOfMarks + mark;
+
+    }
+    const mean = sumOfMarks / arrayOfNumbers.length;
+    return mean;
+}
+allStudents.sort(sortByMean);
+console.log(allStudents);
