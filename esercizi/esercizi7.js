@@ -34,3 +34,177 @@
 //         Aggiungere e rimuovere utenti dalla biblioteca.
 //         Gestire il prestito e la restituzione dei libri agli utenti.
 //         Visualizzare l'elenco dei libri disponibili e degli utenti registrati.
+
+
+class Book {
+    constructor(title, author, isbn, isAvailable) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.isAvailable = isAvailable;
+    }
+
+    toString() {
+        const bookString = `Titolo: ${this.title}\nAutore: ${this.author}\nCodice ISBN: ${this.isbn}`;
+        return bookString;
+    }
+}
+
+class PhysicalBook extends Book {
+    constructor(title, author, isbn, isAvailable, shelfLocation) {
+        super(title, author, isbn, isAvailable);
+        this.shelfLocation = shelfLocation;
+    }
+}
+
+class EBook extends Book {
+    constructor(title, author, isbn, isAvailable, fileFormat) {
+        super(title, author, isbn, isAvailable);
+        this.fileFormat = fileFormat;
+    }
+}
+
+class User {
+    static maxBorrowLimit = 3;
+    constructor(name, id, borrowedBooks = []) {
+        this.name = name;
+        this.id = id;
+        this.borrowedBooks = borrowedBooks;
+    }
+
+    borrowBook(book) {
+        if (this.borrowedBooks.length < User.maxBorrowLimit) {
+            this.borrowedBooks.push(book.title);
+            if (book instanceof PhysicalBook) {
+                book.isAvailable = false;
+            }
+            return this.borrowedBooks;
+        } else {
+            return 'Numero massimo di libri in prestito raggiunto';
+        }
+    }
+
+    returnBook(book) {
+        if (this.borrowedBooks.includes(book.title)) {
+            const index = this.borrowedBooks.indexOf(book.title);
+            this.borrowedBooks.splice(index, 1);
+            if (book instanceof PhysicalBook) {
+                book.isAvailable = true;
+            }
+            return 'Titolo restituito';
+        } else {
+            return 'Titolo non presente nella tua libreria';
+        }
+    }
+
+    get borrowedBooksNumber() {
+        return this.borrowedBooks.length;
+    }
+}
+
+class PremiumUser extends User {
+    static maxBorrowLimit = 3;
+
+    constructor(name, id, borrowedBooks) {
+        super(name, id, borrowedBooks);
+    }
+
+    extendBorrowLimit(newLimit) {
+        User.maxBorrowLimit = newLimit;
+        return User.maxBorrowLimit;
+    }
+}
+
+class Library {
+    constructor(books = [], users = []) {
+        this.books = books;
+        this.users = users;
+    }
+
+    addBook(book) {
+        this.books.push(book);
+        return this.books;
+    }
+
+    removeBook(book) {
+        const index = this.books.indexOf(book);
+        if (index !== -1) {
+            this.books.splice(index, 1);
+        }
+        return this.books;
+    }
+
+    isBookAvailable(isbn) {
+        const book = this.books.find(b => b.isbn === isbn);
+        return book ? book.isAvailable : false;
+    }
+
+    addUser(user) {
+        this.users.push(user);
+        return this.users;
+    }
+
+    removeUser(user) {
+        const index = this.users.indexOf(user);
+        if (index !== -1) {
+            this.users.splice(index, 1);
+        }
+        return this.users;
+    }
+
+    listBooks() {
+        return this.books.map(book => book.toString()).join('\n');
+    }
+
+    listUsers() {
+        return this.users.map(user => `${user.name} (ID: ${user.id})`).join('\n');
+    }
+
+    borrowBook(user, book) {
+        if (book.isAvailable) {
+            user.borrowBook(book);
+            return 'Libro prestato';
+        } else {
+            return 'Libro non disponibile';
+        }
+    }
+
+    returnBook(user, book) {
+        user.returnBook(book);
+        return 'Libro restituito';
+    }
+}
+
+// Example usage:
+const libro1 = new PhysicalBook("Titolissimo", "Degno Autore", "1564685231", true, "A1");
+const libro2 = new EBook("Titolo indecente", "Uncane Indigno", "15646168591", true, "pdf");
+
+const user1 = new User('pippo', 1, ['Titolo meno bello', 'Titolo mediamente interessante']);
+const user2 = new PremiumUser('pluto', 2, ['Titolo brutto', 'Titolo orribile']);
+
+const library1 = new Library([libro1, libro2], [user1, user2]);
+
+console.log(libro1);
+console.log(user1);
+console.log(user1.borrowBook(libro1));
+console.log(user1.returnBook(libro1));
+console.log(user1.returnBook(libro2));
+console.log(user1.borrowedBooksNumber);
+console.log(user2);
+console.log(user2.extendBorrowLimit(5));
+
+console.log(library1);
+console.log(library1.removeBook(libro2));
+console.log(library1.addBook(libro2));
+console.log(library1.isBookAvailable("1564685231")); // true
+console.log(library1.isBookAvailable("15646168591")); // true
+console.log(library1.isBookAvailable("0000000000")); // false
+console.log(library1.listBooks());
+console.log(library1.listUsers());
+console.log(library1.borrowBook(user1, libro1));
+console.log(library1.returnBook(user1, libro1));
+console.log(library1.borrowBook(user1, libro2));
+console.log(library1.removeUser(user1));
+console.log(library1.addUser(user1));
+
+
