@@ -276,6 +276,21 @@ function makeValley(arrayOfInt) {
 const roba = makeValley([]);
 console.log(roba);
 
+//ESERCIZIO 11 CODE-WARS (Find twins)
+
+function elimination(arr) {
+    for (i = 0; i < arr.length; i++) {
+        const int1 = arr[i]
+        for (j = i+1; j < arr.length; j++) {
+            const int2 = arr[j]
+            if (int1 === int2) {
+                return int1;
+            }
+        }
+    }
+    return null;
+}
+
 //ESERCIZIO 12 CODE-WARS (New season, new league)
 
 function premierLeagueStandings(teamStandings) {
