@@ -275,3 +275,17 @@ function makeValley(arrayOfInt) {
 
 const roba = makeValley([]);
 console.log(roba);
+
+//ESERCIZIO 12 CODE-WARS (New season, new league)
+
+function premierLeagueStandings(teamStandings) {
+    const newStandings = {};
+    
+    const firstPlace =  teamStandings["1"];
+    newStandings = {
+      1: firstPlace
+    }
+    delete teamStanding["1"];
+    const teams = teamStanding.values();
+    
+  }
